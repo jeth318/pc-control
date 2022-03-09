@@ -16,7 +16,7 @@ powerOffCommand = ["curl", "--interface", "wlan0",
                    "-X", "POST", host + "/poweroff"]
 
 
-@app.route('/pc-control', methods=['POST'])
+@app.route('/pc', methods=['POST'])
 def index():
     power = request.json["power"]
     if power == 1:
@@ -40,4 +40,3 @@ def buildResponse(message):
 
 
 app.run(host="localhost", port=port)
-
