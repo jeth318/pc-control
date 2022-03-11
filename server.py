@@ -42,7 +42,7 @@ def index():
             message = "Power value invalid. Must me an integer 1/0 or boolean true/false"
             return make_response(buildErrorResponse(message), 400)
         
-        #subprocess.Popen(command, stdout=subprocess.PIPE).communicate()    
+        subprocess.Popen(command, stdout=subprocess.PIPE).communicate()    
     except Exception as e:
         message = "Something here didn't go as planned. " + str(e)
         return make_response(buildErrorResponse(message), 500)
