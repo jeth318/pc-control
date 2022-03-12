@@ -17,11 +17,6 @@ echo "Pulling from ${BRANCH_NAME}"
 git pull origin ${BRANCH_NAME}
 echo "Pulled successfully"
 
-
-echo "Installing dependencies"
-npm install
-echo "Project dependencies was installed"
-
 echo "Rebooting pc-control"
 
 if [[ $BRANCH_NAME == "master" ]]; then
