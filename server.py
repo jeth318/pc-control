@@ -10,11 +10,6 @@ host = os.environ["HOST"]
 host_mac = os.environ["HOST_MAC"]
 xAccessToken = os.environ["X_ACCESS_TOKEN"]
 
-powerOnCommand = ["sudo", "/usr/sbin/etherwake",
-                  "-i", "wlan0", "-b", host_mac]
-powerOffCommand = ["curl", "--interface", "wlan0",
-                   "-X", "POST", host + "/poweroff"]
-
 
 @app.route('/pc', methods=['POST'])
 def index():
@@ -31,6 +26,11 @@ def index():
         return make_response(buildErrorResponse(message), 401)
 
     try:
+        powerOnCommand = ["sudo", "/usr/sbin/etherwake",
+                          "-i", "wlan0", "-b", host_mac]
+
+        powerOffCommand = ["curl", "--interface", "wlan0",
+                           "-X", "POST", host + "/poweroff"]
         power = request.json["power"]
         if power == 1:
             command = powerOnCommand
