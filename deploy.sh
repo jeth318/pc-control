@@ -1,6 +1,6 @@
 #!/bin/sh
 branch=$(git branch --show-current)
-destination="jeth@10.0.128.110:/home/jeth/apps/pc-control"
+destination="jeth@elara.local:~/apps/pc-control"
 
 if [[ $branch == "main" ]]; then
     echo "On main branch. Will ship to server"
